@@ -1,7 +1,6 @@
 package day01
 
 import (
-	// "fmt"
 	"math"
 	"sort"
 	"strconv"
@@ -14,7 +13,6 @@ func New() *Solver {
 	return &Solver{}
 }
 
-// Implements solutions.Solver interface
 func (s *Solver) Part1(input string) (string, error) {
 	l, r := parseInput(input)
 
@@ -31,8 +29,20 @@ func (s *Solver) Part1(input string) (string, error) {
 }
 
 func (s *Solver) Part2(input string) (string, error) {
-	// Your solution for part 2
-	return "solution to part 2", nil
+	l, r := parseInput(input)
+
+	// first create map of values and frequencies of right list
+	rightMap := make(map[int]int)
+	for _, num := range r {
+		rightMap[num]++
+	}
+
+	// second, iterate through left list and add right list frequencies for each number to sum
+	sum := 0
+	for _, num := range l {
+		sum += num * rightMap[num]
+	}
+	return strconv.Itoa(sum), nil
 }
 
 func parseInput(input string) ([]int, []int) {
@@ -57,5 +67,4 @@ func parseInput(input string) ([]int, []int) {
 	}
 
 	return l, r
-
 }
