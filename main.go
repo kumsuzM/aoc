@@ -1,6 +1,3 @@
-// internal/solutions/registry.go (replaces the year-specific registry)
-
-// main.go
 package main
 
 import (
@@ -11,6 +8,7 @@ import (
 	"github.com/kumsuzM/aoc/internal/solutions"
 	"github.com/kumsuzM/aoc/internal/solutions/2024/day01"
 	"github.com/kumsuzM/aoc/internal/solutions/2024/day02"
+	"github.com/kumsuzM/aoc/internal/solutions/2024/day03"
 )
 
 var registry = solutions.NewRegistry()
@@ -19,6 +17,7 @@ func init() {
 	// Register solutions for each year/day
 	registry.Register(2024, 1, day01.New())
 	registry.Register(2024, 2, day02.New())
+	registry.Register(2024, 3, day03.New())
 	// register more days here...
 }
 
